@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Triage — Soumyadip Banerjee</title>
+<meta name="description" content="A tool that reads a CV, finds relevant work, and scores every role on fit and on whether the employer will actually reply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="sig" href="index.html">Soumyadip Banerjee</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="janata-bazar.html">Janata Bazar</a>
+      <a href="job-triage.html" aria-current="page">Job Triage</a>
+      <a href="writing.html">Writing &amp; film</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="banner">
+    <p class="kind">Software · 2026 · built in the open</p>
+    <h1>Job Triage</h1>
+    <p class="lede">A single-file web app that reads anyone's CV, works out which career directions are realistically open to them, then finds and ranks the jobs. Every role gets two separate scores — how well the work fits, and how likely that employer is to reply.</p>
+    <div class="facts">
+      <div><b>2</b>scoring axes</div>
+      <div><b>4</b>job sources</div>
+      <div><b>0</b>servers</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="narrow">
+    <h2>The problem</h2>
+    <p>Job boards rank by relevance. That sounds right and is quietly harmful: it sends people to the roles that match them best on paper, which for anyone changing direction means a queue of jobs they have no realistic chance at. Relevance and winnability are different things, and collapsing them into one number wastes months.</p>
+    <p>Two related problems sit underneath it. Every profession advertises somewhere different, and for most people that place is not LinkedIn — academic posts live on field registries, startup roles on YC and Ashby. And the openings worth the most are frequently never posted at all, because they're filled through referral before anyone writes an ad.</p>
+  </section>
+
+  <section>
+    <div class="split">
+      <div class="col run">
+        <h4>What it does</h4>
+        <ul>
+          <li>Reads a CV and extracts structured facts, including what the person honestly cannot claim</li>
+          <li>Generates career directions and rates each one easy, moderate or moonshot against that specific background</li>
+          <li>Suggests companies worth approaching, then checks which are actually hiring</li>
+          <li>Tracks live conversations and overdue follow-ups, not just applications sent</li>
+        </ul>
+      </div>
+      <div class="col build">
+        <h4>How it's built</h4>
+        <ul>
+          <li>Reads Greenhouse, Lever and Ashby feeds directly — free, live, and with full job descriptions</li>
+          <li>Multi-source ingestion with schema-drift handling, deduplication and visible failure logging</li>
+          <li>Search sources derived from the person's own field rather than a fixed list of boards</li>
+          <li>One HTML file, no build step, no backend — data stays on the user's machine</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="narrow">
+    <h2>The decision I'd defend</h2>
+    <p>Separating fit from reachability is the whole idea. A forward deployed role at a famous AI lab might score 88 on fit and 8 on reachability. A similar role at a company nobody's heard of scores 70 and 60. Ranked by fit, you spend a week on the first. Ranked by both, the second appears above it, which is the correct answer.</p>
+    <p>The same logic drove reading ATS feeds instead of scraping. Scrapers parse career-page HTML and break when someone redesigns a site. The feeds are the same data the career page itself loads, they're public, and they cost nothing. Fewer moving parts, better data, no maintenance.</p>
+    <div class="links">
+      <a class="pill" data-todo href="#" title="Push the repo and link it">Source — add repo link</a>
+    </div>
+  </section>
+
+  <div class="next">
+    <div><span class="lbl">Next</span><a href="panee.html">Panee</a></div>
+    <div><span class="lbl">Back to</span><a href="janata-bazar.html">Janata Bazar</a></div>
+  </div>
+  <footer>
+    <div>Kolkata, India · <a href="index.html">Back to the start</a></div>
+  </footer>
+</div>
+
+</body>
+</html>

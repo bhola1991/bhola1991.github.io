@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panee and the Janata Bazar apps — Soumyadip Banerjee</title>
+<meta name="description" content="Three live Android apps on Google Play — farmer, customer and delivery partner — for a fresh produce business in Kolkata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="sig" href="index.html">Soumyadip Banerjee</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="janata-bazar.html">Janata Bazar</a>
+      <a href="panee.html" aria-current="page">Panee &amp; apps</a>
+      <a href="job-triage.html">Job Triage</a>
+      <a href="writing.html">Writing &amp; film</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="banner">
+    <p class="kind">Shipped software · live on Google Play · updated July 2026</p>
+    <h1>Three apps holding up one supply chain</h1>
+    <p class="lede">A produce business needs three different people to act before a vegetable reaches a kitchen: the farmer who has it, the customer who wants it, and the person who moves it. Each one got an app. I designed the system, specified it, and drove the build; a development team wrote the implementation. All three are live on Google Play under my name.</p>
+    <div class="facts">
+      <div><b>3</b>apps in production</div>
+      <div><b>Live</b>on Google Play</div>
+      <div><b>19+</b>outlets served</div>
+      <div><b>Jul 2026</b>last shipped</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section>
+    <h2>The three sides</h2>
+    <p class="sec-note">A marketplace only works if every side of it does. Building one app is a product problem; building three that stay consistent with each other is a systems problem, and that's the harder half.</p>
+    <div class="entries">
+      <div class="entry">
+        <div class="entry-h"><h3>Panee — the farmer app</h3><span class="when">com.jb.farmer</span></div>
+        <p>Farmers register, list freshly harvested vegetables and fruit, manage inventory, and receive bulk orders from Janata Bazar directly. Real-time stock updates and order tracking, with no middlemen in between.</p>
+        <p class="credits">Rated for 3+ · no data collected, none shared with third parties</p>
+        <div class="links" style="margin-top:14px">
+          <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.farmer" target="_blank" rel="noopener">View on Google Play</a>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-h"><h3>The customer app</h3><span class="when">com.jb.customer</span></div>
+        <p>The consumer end. Fresh vegetables, fruit, fish, meat and daily groceries, ordered from the same stock the farmer side is filling.</p>
+        <div class="links" style="margin-top:14px">
+          <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.customer" target="_blank" rel="noopener">View on Google Play</a>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-h"><h3>The delivery partner app</h3><span class="when">com.jb.deliver_partner</span></div>
+        <p>The fulfilment side, closing the loop between a listed harvest and a doorstep.</p>
+        <div class="links" style="margin-top:14px">
+          <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.deliver_partner" target="_blank" rel="noopener">View on Google Play</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="narrow">
+    <h2>The problem underneath</h2>
+    <p>Indian agricultural policy talks about C2+50% — a price that covers a farmer's full cost of production plus a fifty percent margin. On the ground, most small and marginal farmers never see anything close to it. They can't access government procurement, so they sell into local markets at prices frequently 10–30% below MSP, and far below C2+50%.</p>
+    <p>The mechanism is simple and brutal: no storage and an immediate need for cash means selling the moment the crop is off the field, whatever the price is that morning. Sometimes below what it cost to grow.</p>
+    <p>Sourcing directly and cutting layers out is the only lever that moves this. That's what the farmer app is for — it isn't a feature, it's the entire argument for the business existing.</p>
+  </section>
+
+  <section>
+    <div class="split">
+      <div class="col run">
+        <h4>What the business runs on it</h4>
+        <ul>
+          <li>Direct sourcing from farmers, with fewer intermediaries between field and shelf</li>
+          <li>Fair, more stable pricing on the supply side and affordable produce on the demand side</li>
+          <li>Distribution across 19+ franchise outlets in South Kolkata</li>
+        </ul>
+      </div>
+      <div class="col build">
+        <h4>What that demanded technically</h4>
+        <ul>
+          <li>Three separate Android apps kept consistent against shared inventory and order state</li>
+          <li>Real-time stock and order tracking across users on poor connections</li>
+          <li>An interface a farmer can complete a listing in, on a mid-range phone, in a field</li>
+          <li>A privacy posture strict enough to declare no data collected and none shared</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="narrow">
+    <h2>How this was built, and how I'd build it now</h2>
+    <p>I owned the architecture: how the three sides fit together, what state they share, what each user has to be able to do and — more importantly — what they must never be asked to do. I specified it and drove it through to release. A development team wrote the implementation.</p>
+    <p>That division isn't how I work any more. Codex and Claude Code changed what one person can carry, and everything I've built since has been direct: the internal operational tooling at Janata Bazar, in daily use by non-technical staff, and <a href="job-triage.html">Job Triage</a>, which is mine end to end.</p>
+    <p>The framework thinking is the part that transferred. Knowing what a system has to do, and which constraints are real rather than assumed, is what made the specification good enough for a team to build from — and it is the same judgement that makes the code I write now worth anything.</p>
+  </section>
+
+  <section class="narrow">
+    <h2>Designing for the actual user</h2>
+    <p>The constraint that shaped everything: the farmer using this may have never used a marketplace app, is standing in a field, and has one hand free. Every additional field in a listing form is a farmer who abandons it and sells to the middleman instead — which is precisely the outcome the whole thing exists to prevent.</p>
+    <p>That's the same constraint as deploying software into any working business. The people who have to use it did not ask for it, are busy, and will quietly go back to the old way the moment it costs them time.</p>
+    <div class="links">
+      <a class="pill" href="https://janatabazar.com/" target="_blank" rel="noopener">janatabazar.com</a>
+      <a class="pill" data-todo href="#" title="Add screenshots of the Panee app">App screenshots — add</a>
+    </div>
+  </section>
+
+  <div class="next">
+    <div><span class="lbl">Next</span><a href="janata-bazar.html">The operation behind it</a></div>
+    <div><span class="lbl">Also</span><a href="job-triage.html">Job Triage</a></div>
+  </div>
+  <footer>
+    <div>Kolkata, India · <a href="index.html">Back to the start</a></div>
+  </footer>
+</div>
+
+</body>
+</html>
