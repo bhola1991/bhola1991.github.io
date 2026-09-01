@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rejected as surveillance, accepted as structure — Soumyadip Banerjee</title>
+<meta name="description" content="What I built to run 19 grocery outlets, what failed, and why the same system worked once it started paying people.">
+<meta property="og:title" content="Soumyadip Banerjee">
+<meta property="og:description" content="What I built to run 19 grocery outlets, what failed, and why the same system worked once it started paying people.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════
+   Soumyadip Banerjee — portfolio
+   One stylesheet, four pages.
+
+   Colour does structural work. Each pillar owns one:
+     --ops  green  operations
+     --soft ochre  software
+     --cont blue   content
+   The sidebar stays neutral so the pillar colour is the
+   only thing that changes as you move between pages.
+   ══════════════════════════════════════════════════════ */
+
+:root{
+  --paper:#EFF0EA; --ink:#131A15;
+  --ops:#2C6E49; --soft:#C87F1E; --cont:#35617E;
+  --muted:#5E665C; --faint:#8A9086; --rule:#D3D6CC;
+  --accent:var(--soft);           /* overridden per page */
+  --display:'Fraunces',Georgia,serif;
+  --body:'Karla',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.6}
+@media(max-width:600px){body{font-size:16px}}
+a{color:inherit}
+a:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px}
+img{max-width:100%;display:block}
+
+/* ── shell: sidebar + content ───────────────────────── */
+.shell{max-width:1060px;margin:0 auto;padding:0 26px;
+  display:grid;grid-template-columns:236px 1fr;gap:56px;align-items:start}
+@media(max-width:820px){.shell{grid-template-columns:1fr;gap:0}}
+
+.side{position:sticky;top:0;padding:46px 0 40px}
+@media(max-width:820px){.side{position:static;padding:32px 0 24px;
+  border-bottom:1px solid var(--rule)}}
+
+.portrait{width:132px;height:132px;border-radius:50%;object-fit:cover;
+  border:1.5px solid var(--ink);background:var(--rule)}
+/* Shown until a real photo is dropped in. Deliberately plain rather than a
+   silhouette icon — it reads as unfinished, which is the point. */
+.portrait-none{width:132px;height:132px;border-radius:50%;
+  border:1.5px dashed var(--faint);display:flex;align-items:center;
+  justify-content:center;text-align:center;font-size:11.5px;color:var(--faint);
+  line-height:1.35;padding:14px}
+
+.side h1{font-family:var(--display);font-size:1.4rem;font-weight:500;
+  letter-spacing:-.015em;margin:20px 0 4px;line-height:1.2}
+.side h1 a{text-decoration:none}
+.side .role{font-size:13.5px;color:var(--muted);margin:0 0 22px;line-height:1.4}
+
+.side nav{display:flex;flex-direction:column;gap:2px;margin-bottom:24px}
+@media(max-width:820px){.side nav{flex-direction:row;flex-wrap:wrap;gap:16px}}
+.side nav a{text-decoration:none;font-size:15px;color:var(--muted);
+  padding:3px 0 3px 13px;border-left:2.5px solid transparent;
+  transition:color .15s,border-color .15s}
+@media(max-width:820px){.side nav a{padding:0 0 3px;border-left:none;
+  border-bottom:2.5px solid transparent}}
+.side nav a:hover{color:var(--ink)}
+.side nav a.o:hover,.side nav a.o[aria-current]{border-color:var(--ops);color:var(--ops)}
+.side nav a.s:hover,.side nav a.s[aria-current]{border-color:var(--soft);color:var(--soft)}
+.side nav a.c:hover,.side nav a.c[aria-current]{border-color:var(--cont);color:var(--cont)}
+.side nav a.h:hover,.side nav a.h[aria-current]{border-color:var(--ink);color:var(--ink)}
+
+.side .meta{font-size:13px;color:var(--faint);line-height:1.6;
+  border-top:1px solid var(--rule);padding-top:16px}
+.side .meta a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.side .meta a:hover{border-bottom-color:var(--ink)}
+
+/* ── main ───────────────────────────────────────────── */
+.main{padding:46px 0 70px;min-width:0}
+@media(max-width:820px){.main{padding:32px 0 60px}}
+
+.intro{font-family:var(--display);font-size:clamp(1.35rem,2.9vw,1.85rem);
+  font-weight:400;line-height:1.42;letter-spacing:-.015em;margin:0;max-width:34ch}
+.intro em{font-style:normal;position:relative;white-space:nowrap}
+.intro em::after{content:"";position:absolute;left:0;right:0;bottom:.02em;
+  height:.09em;border-radius:2px;transform:scaleX(0);transform-origin:left;
+  animation:d .55s cubic-bezier(.22,.9,.3,1) forwards}
+.intro em.s::after{background:var(--soft);animation-delay:.25s}
+.intro em.c::after{background:var(--cont);animation-delay:.5s}
+.intro em.o::after{background:var(--ops);animation-delay:.75s}
+@keyframes d{to{transform:scaleX(1)}}
+.after{margin:26px 0 0;max-width:52ch;color:var(--muted)}
+
+/* page headers on inner pages */
+.ph{border-bottom:2.5px solid var(--accent);padding-bottom:12px;margin-bottom:26px}
+.ph h2{font-family:var(--display);font-size:clamp(1.6rem,3.6vw,2.15rem);
+  font-weight:400;letter-spacing:-.02em;margin:0;color:var(--accent)}
+.ph p{margin:10px 0 0;color:var(--muted);max-width:56ch;font-size:15.5px}
+
+h3{font-family:var(--display);font-size:1.2rem;font-weight:500;
+  letter-spacing:-.012em;margin:0 0 7px}
+p{max-width:66ch}
+
+/* ── entries ────────────────────────────────────────── */
+.entry{padding:22px 0;border-bottom:1px solid var(--rule)}
+.entry:first-of-type{border-top:1px solid var(--rule)}
+.entry-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px}
+.entry-h h3{margin:0}
+.when{font-size:13px;color:var(--faint)}
+.entry p{margin:0;color:var(--muted);font-size:15.5px;max-width:62ch}
+.entry .sub{margin-top:8px;font-size:14px;color:var(--faint)}
+
+ul.pts{margin:0;padding:0;list-style:none}
+ul.pts li{position:relative;padding-left:15px;margin-bottom:9px;
+  font-size:15.5px;line-height:1.5}
+ul.pts li::before{content:"";position:absolute;left:0;top:.64em;
+  width:6px;height:1.5px;background:var(--accent)}
+
+/* ── quick links on home ────────────────────────────── */
+.jump{margin-top:38px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+@media(max-width:700px){.jump{grid-template-columns:1fr}}
+.jump a{text-decoration:none;padding:20px 20px 18px;min-height:132px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  transition:filter .18s;color:var(--paper)}
+.jump a.s{background:var(--soft);color:var(--ink)}
+.jump a.c{background:var(--cont)}
+.jump a.o{background:var(--ops)}
+.jump a:hover{filter:brightness(1.09) saturate(1.08)}
+.jump .n{font-family:var(--display);font-size:1.22rem;font-weight:500;letter-spacing:-.015em}
+.jump .w{font-size:14px;line-height:1.42;opacity:.88;margin-top:8px}
+
+.links{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap}
+.pill{font-size:13.5px;text-decoration:none;color:var(--muted);
+  border:1px solid var(--rule);padding:6px 12px;transition:border-color .15s,color .15s}
+.pill:hover{border-color:var(--ink);color:var(--ink)}
+.pill[data-todo]{border-style:dashed;color:var(--faint)}
+
+.foot{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+  color:var(--faint);font-size:13px}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .intro em::after{transform:scaleX(1)}}
+
+:root{--accent:var(--soft)}
+</style>
+
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <!-- Swap this block for: <img class="portrait" src="assets/images/me.jpg" alt="Soumyadip Banerjee"> -->
+    <div class="portrait-none">add photo<br>assets/images/me.jpg</div>
+    <h1><a href="index.html">Soumyadip Banerjee</a></h1>
+    <p class="role">Software, content and operations. Kolkata.</p>
+    <nav>
+      <a class="h" href="index.html">Home</a>
+      <a class="s" href="software.html" aria-current="page">Software</a>
+      <a class="c" href="content.html">Content</a>
+      <a class="o" href="operations.html">Operations</a>
+    </nav>
+    <div class="meta">
+      <a href="mailto:banerjeesoumyadip1991@gmail.com">Email</a><br>
+      <a href="https://www.linkedin.com/in/soumyadip-banerjee-05bbb8b3" target="_blank" rel="noopener">LinkedIn</a><br>
+      <a href="https://github.com/bhola1991" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="ph">
+      <h2>Rejected as surveillance,<br>accepted as structure</h2>
+      <p>What I built to run 19 grocery outlets, what the staff refused to use, and why the same system worked once it started paying them.</p>
+    </div>
+
+    <p>When I started at Janata Bazar in late 2022, the business ran on WhatsApp groups and one person's memory.</p>
+
+    <p>Every decision routed through whoever was in charge. They monitored the work, they modified the work, and they held the whole picture in their head. There was no structure underneath any of it — which meant there was no way for anyone else to see what was happening, and no way for the business to run when that person was busy.</p>
+
+    <p>The consequences were predictable once you look at them written down. Vendors got told different things by different people. Counter operators worked off instructions nobody had recorded. And we had no live view of the shops at all: the POS machines held the day's billing, and someone typed it into Google Sheets at the end of the day.</p>
+
+    <p>So the entire business was a day behind itself. Procurement was worse — nothing planned, everything decided in the moment by whoever was standing there.</p>
+
+    <h3 style="margin-top:34px">Three things that were actually costing money</h3>
+
+    <p>Underneath the general mess were three specific failures.</p>
+
+    <p><b>We were missing online orders.</b> People ordered, we couldn't fulfil, because stock levels were never current. You cannot sell what you cannot see.</p>
+
+    <p><b>Shops weren't opening on time.</b> A grocery store opens at 6am. Before that, someone has to do the basic inventory and set the store up. That wasn't happening reliably, and a store that opens late has already lost its morning.</p>
+
+    <p><b>Staff were stealing.</b> The POS terminals weren't connected to anything central, so nobody could see what was being billed. That's not a temptation problem, it's a design problem — we had built a system where taking money was invisible.</p>
+
+    <h3 style="margin-top:34px">What I built, in order</h3>
+
+    <p>I didn't start with an app. The apps came much later. I started with a basic algorithmic structure for how the thing should work, and then fixed things in the order that unlocked the next thing.</p>
+
+    <ul class="pts">
+      <li><b>Opening discipline first.</b> A mechanism to confirm every shop opened on time and ran to a set sequence.</li>
+      <li><b>Then inventory and ordering.</b> A real process for what gets ordered, by whom, against what stock.</li>
+      <li><b>Then the POS terminals onto a static IP server.</b> This was the unlock. Suddenly we could pull live data from every store instead of waiting a day.</li>
+      <li><b>Then CCTV integrated on top of that</b>, so a flagged discrepancy in the numbers could be checked against what actually happened at the counter.</li>
+    </ul>
+
+    <p>The sequence matters. Each step made the next one possible. Connecting the POS terminals is what let us stop hand-entering bills, and stopping hand-entry is what made daily inventory survivable in a fresh food business, where stock that isn't tracked is stock that rots.</p>
+
+    <h3 style="margin-top:34px">What failed</h3>
+
+    <p>Most of the first attempts.</p>
+
+    <p><b>The opening mechanism was rejected outright.</b> Staff read it as surveillance, because that's what it was. I had built a system that watched people and gave them nothing.</p>
+
+    <p><b>The ordering flow was too complicated.</b> We started on a billing package called My Billbook, which was harder than what it replaced. We moved to Google Sheets, which was easier and still difficult. Staff didn't want to order through a spreadsheet, and I don't blame them.</p>
+
+    <p><b>Manual bill entry was a hard no.</b> Before the static IP work, someone had to key in the full day's billing every night. Nobody was going to keep doing that, and they were right not to.</p>
+
+    <p>The pattern across all three: I was adding work to people's day and offering them nothing in return. It doesn't matter how good the system is if that's the trade.</p>
+
+    <h3 style="margin-top:34px">What changed it</h3>
+
+    <p>The same visibility staff had rejected became something they accepted — and the difference wasn't technical.</p>
+
+    <p>Once there was structure, a failure stopped being somebody's fault. When the process is undefined, a problem means finding the person to blame. When the process is defined, a problem means finding the step that broke. That alone brought people around, because it made the system feel less like it was pointed at them.</p>
+
+    <p>Then we made it pay. This is entry-level retail work with low salaries, which means incentives move people. We ran a competition between shops on sales, and rewarded staff who found their own ways to sell more. The metrics that had felt like monitoring became the scoreboard.</p>
+
+    <p>It was still more work. But a little more work that produced a reward turned the whole thing around.</p>
+
+    <p>The thing I'd underestimated is that the software's real job was legibility. Once the numbers were visible and simple, staff could see what was working, what wasn't, what earned them something, and what cost them. Nobody needed the system explained after that.</p>
+
+    <h3 style="margin-top:34px">Where it landed</h3>
+
+    <p>Shops open on time. We aren't missing deliveries. The lags and drops that defined the early months have largely gone. Random checks against live POS data ended the theft — not by catching people, but by making it visible enough that it stopped being worth trying.</p>
+
+    <h3 style="margin-top:34px">What I'd do differently</h3>
+
+    <p>The development team took a year. That work would take a month now.</p>
+
+    <p>In 2022 I specified the systems and handed them to developers to build. That handoff was the slowest part of the whole process — not because the team was bad, but because every bottleneck I spotted had to be described, queued, and waited on. I was the person who could see the problem and the person least able to fix it.</p>
+
+    <p>With Codex and Claude Code I build directly, which is how everything at Janata Bazar since has been made. Less time, far less money, and the bottlenecks get found faster because the person doing the building is the person running the operation.</p>
+
+    <p>The other thing I'd get right immediately: build the incentive before the instrument. I spent months learning that a system which only watches people will be rejected, and the same system that also rewards them will be adopted. That isn't a lesson about grocery retail. It's what happens any time you deploy software into a working business — the people who have to use it didn't ask for it, and they will go back to the old way the moment it costs them more than it gives.</p>
+
+    <div class="links">
+      <a class="pill" href="software.html">Back to Software</a>
+      <a class="pill" href="https://janatabazar.com/" target="_blank" rel="noopener">janatabazar.com</a>
+    </div>
+    <div class="foot">Kolkata, India · English, Bengali, Hindi · Economics graduate</div>
+  </main>
+
+</div>
+</body>
+</html>
