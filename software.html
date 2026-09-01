@@ -148,6 +148,13 @@ ul.pts li::before{content:"";position:absolute;left:0;top:.64em;
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
   .intro em::after{transform:scaleX(1)}}
 
+/* ── app screenshot strip ───────────────────────────── */
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media(max-width:640px){.shots{grid-template-columns:repeat(2,1fr);gap:14px}}
+.shots figure{margin:0}
+.shots img{width:100%;height:auto;border:1px solid var(--rule)}
+.shots figcaption{font-size:12px;color:var(--faint);margin-top:7px;line-height:1.35}
+
 :root{--accent:var(--soft)}
 </style>
 
@@ -156,8 +163,7 @@ ul.pts li::before{content:"";position:absolute;left:0;top:.64em;
 <div class="shell">
 
   <aside class="side">
-    <!-- Swap this block for: <img class="portrait" src="assets/images/me.jpg" alt="Soumyadip Banerjee"> -->
-    <div class="portrait-none">add photo<br>assets/images/me.jpg</div>
+    <img class="portrait" src="me.jpg" alt="Soumyadip Banerjee">
     <h1><a href="index.html">Soumyadip Banerjee</a></h1>
     <p class="role">Software, content and operations. Kolkata.</p>
     <nav>
@@ -168,6 +174,7 @@ ul.pts li::before{content:"";position:absolute;left:0;top:.64em;
     </nav>
     <div class="meta">
       <a href="mailto:banerjeesoumyadip1991@gmail.com">Email</a><br>
+      <a href="cv.pdf" target="_blank" rel="noopener">CV</a><br>
       <a href="https://www.linkedin.com/in/soumyadip-banerjee-05bbb8b3" target="_blank" rel="noopener">LinkedIn</a><br>
       <a href="https://github.com/bhola1991" target="_blank" rel="noopener">GitHub</a>
     </div>
@@ -182,7 +189,13 @@ ul.pts li::before{content:"";position:absolute;left:0;top:.64em;
     <div class="entry">
       <div class="entry-h"><h3>Panee and the Janata Bazar apps</h3><span class="when">Live on Google Play</span></div>
       <p>Three Android apps covering every side of a produce marketplace: farmers list their harvest, customers order, delivery partners fulfil. I architected the system, specified it, and drove the build; a development team wrote the implementation. Listed under my name.</p>
-      <p class="sub">The constraint that shaped it: a farmer standing in a field with one hand free. Every extra field in a listing form is a farmer who abandons it and sells to the middleman instead — which is the exact outcome the business exists to prevent.</p>
+      <p class="sub">The constraint that shaped it: a farmer standing in a field with one hand free. Every extra field in a listing form is a farmer who sells to the middleman instead.</p>
+      <div class="shots">
+        <figure><img src="app-farmer.webp" alt="Panee farmer app profile screen showing KYC and bank details" loading="lazy" width="453" height="900"><figcaption>Farmer — KYC and payout</figcaption></figure>
+        <figure><img src="app-customer.webp" alt="Customer app product page for Kochur Loti with grade and unit options" loading="lazy" width="506" height="900"><figcaption>Customer — grade and unit</figcaption></figure>
+        <figure><img src="app-delivery.webp" alt="Delivery partner app home screen with online status toggle" loading="lazy" width="506" height="900"><figcaption>Delivery — run queue</figcaption></figure>
+        <figure><img src="app-order.webp" alt="Order detail screen showing 10 kg ordered against 8 kg received" loading="lazy" width="506" height="900"><figcaption>Ordered 10 kg, received 8</figcaption></figure>
+      </div>
       <div class="links">
         <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.farmer" target="_blank" rel="noopener">Panee — farmer app</a>
         <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.customer" target="_blank" rel="noopener">Customer app</a>
@@ -193,7 +206,7 @@ ul.pts li::before{content:"";position:absolute;left:0;top:.64em;
     <div class="entry">
       <div class="entry-h"><h3>Job Triage</h3><span class="when">2026 · mine end to end</span></div>
       <p>Reads any CV, works out which career directions are realistically open to that person, then finds and ranks jobs. Every role gets two separate scores: how well the work fits, and whether that employer will actually reply. A perfect job you won't get is not a good lead.</p>
-      <p class="sub">Reads Greenhouse, Lever and Ashby feeds directly rather than scraping. Multi-source ingestion with schema-drift handling, deduplication, and confidence tracked separately from score.</p>
+      <p class="sub">Reads Greenhouse, Lever and Ashby feeds directly rather than scraping, with confidence tracked separately from score.</p>
       <div class="links">
         <a class="pill" href="https://bhola1991.github.io/job_triage/" target="_blank" rel="noopener">Try it live</a>
         <a class="pill" href="https://github.com/bhola1991/job_triage" target="_blank" rel="noopener">Source</a>
