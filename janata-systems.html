@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rejected as surveillance, accepted as structure — Soumyadip Banerjee</title>
+<meta name="description" content="What I built to run 19 grocery outlets, what failed, and why the same system worked once it started paying people.">
+<meta property="og:title" content="Soumyadip Banerjee">
+<meta property="og:description" content="What I built to run 19 grocery outlets, what failed, and why the same system worked once it started paying people.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>:root{--accent:var(--soft)}</style>
+
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <!-- Swap this block for: <img class="portrait" src="assets/images/me.jpg" alt="Soumyadip Banerjee"> -->
+    <div class="portrait-none">add photo<br>assets/images/me.jpg</div>
+    <h1><a href="index.html">Soumyadip Banerjee</a></h1>
+    <p class="role">Software, content and operations. Kolkata.</p>
+    <nav>
+      <a class="h" href="index.html">Home</a>
+      <a class="s" href="software.html" aria-current="page">Software</a>
+      <a class="c" href="content.html">Content</a>
+      <a class="o" href="operations.html">Operations</a>
+    </nav>
+    <div class="meta">
+      <a href="mailto:banerjeesoumyadip1991@gmail.com">Email</a><br>
+      <a href="https://www.linkedin.com/in/soumyadip-banerjee-05bbb8b3" target="_blank" rel="noopener">LinkedIn</a><br>
+      <a href="https://github.com/bhola1991" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="ph">
+      <h2>Rejected as surveillance,<br>accepted as structure</h2>
+      <p>What I built to run 19 grocery outlets, what the staff refused to use, and why the same system worked once it started paying them.</p>
+    </div>
+
+    <p>When I started at Janata Bazar in late 2022, the business ran on WhatsApp groups and one person's memory.</p>
+
+    <p>Every decision routed through whoever was in charge. They monitored the work, they modified the work, and they held the whole picture in their head. There was no structure underneath any of it — which meant there was no way for anyone else to see what was happening, and no way for the business to run when that person was busy.</p>
+
+    <p>The consequences were predictable once you look at them written down. Vendors got told different things by different people. Counter operators worked off instructions nobody had recorded. And we had no live view of the shops at all: the POS machines held the day's billing, and someone typed it into Google Sheets at the end of the day.</p>
+
+    <p>So the entire business was a day behind itself. Procurement was worse — nothing planned, everything decided in the moment by whoever was standing there.</p>
+
+    <h3 style="margin-top:34px">Three things that were actually costing money</h3>
+
+    <p>Underneath the general mess were three specific failures.</p>
+
+    <p><b>We were missing online orders.</b> People ordered, we couldn't fulfil, because stock levels were never current. You cannot sell what you cannot see.</p>
+
+    <p><b>Shops weren't opening on time.</b> A grocery store opens at 6am. Before that, someone has to do the basic inventory and set the store up. That wasn't happening reliably, and a store that opens late has already lost its morning.</p>
+
+    <p><b>Staff were stealing.</b> The POS terminals weren't connected to anything central, so nobody could see what was being billed. That's not a temptation problem, it's a design problem — we had built a system where taking money was invisible.</p>
+
+    <h3 style="margin-top:34px">What I built, in order</h3>
+
+    <p>I didn't start with an app. The apps came much later. I started with a basic algorithmic structure for how the thing should work, and then fixed things in the order that unlocked the next thing.</p>
+
+    <ul class="pts">
+      <li><b>Opening discipline first.</b> A mechanism to confirm every shop opened on time and ran to a set sequence.</li>
+      <li><b>Then inventory and ordering.</b> A real process for what gets ordered, by whom, against what stock.</li>
+      <li><b>Then the POS terminals onto a static IP server.</b> This was the unlock. Suddenly we could pull live data from every store instead of waiting a day.</li>
+      <li><b>Then CCTV integrated on top of that</b>, so a flagged discrepancy in the numbers could be checked against what actually happened at the counter.</li>
+    </ul>
+
+    <p>The sequence matters. Each step made the next one possible. Connecting the POS terminals is what let us stop hand-entering bills, and stopping hand-entry is what made daily inventory survivable in a fresh food business, where stock that isn't tracked is stock that rots.</p>
+
+    <h3 style="margin-top:34px">What failed</h3>
+
+    <p>Most of the first attempts.</p>
+
+    <p><b>The opening mechanism was rejected outright.</b> Staff read it as surveillance, because that's what it was. I had built a system that watched people and gave them nothing.</p>
+
+    <p><b>The ordering flow was too complicated.</b> We started on a billing package called My Billbook, which was harder than what it replaced. We moved to Google Sheets, which was easier and still difficult. Staff didn't want to order through a spreadsheet, and I don't blame them.</p>
+
+    <p><b>Manual bill entry was a hard no.</b> Before the static IP work, someone had to key in the full day's billing every night. Nobody was going to keep doing that, and they were right not to.</p>
+
+    <p>The pattern across all three: I was adding work to people's day and offering them nothing in return. It doesn't matter how good the system is if that's the trade.</p>
+
+    <h3 style="margin-top:34px">What changed it</h3>
+
+    <p>The same visibility staff had rejected became something they accepted — and the difference wasn't technical.</p>
+
+    <p>Once there was structure, a failure stopped being somebody's fault. When the process is undefined, a problem means finding the person to blame. When the process is defined, a problem means finding the step that broke. That alone brought people around, because it made the system feel less like it was pointed at them.</p>
+
+    <p>Then we made it pay. This is entry-level retail work with low salaries, which means incentives move people. We ran a competition between shops on sales, and rewarded staff who found their own ways to sell more. The metrics that had felt like monitoring became the scoreboard.</p>
+
+    <p>It was still more work. But a little more work that produced a reward turned the whole thing around.</p>
+
+    <p>The thing I'd underestimated is that the software's real job was legibility. Once the numbers were visible and simple, staff could see what was working, what wasn't, what earned them something, and what cost them. Nobody needed the system explained after that.</p>
+
+    <h3 style="margin-top:34px">Where it landed</h3>
+
+    <p>Shops open on time. We aren't missing deliveries. The lags and drops that defined the early months have largely gone. Random checks against live POS data ended the theft — not by catching people, but by making it visible enough that it stopped being worth trying.</p>
+
+    <h3 style="margin-top:34px">What I'd do differently</h3>
+
+    <p>The development team took a year. That work would take a month now.</p>
+
+    <p>In 2022 I specified the systems and handed them to developers to build. That handoff was the slowest part of the whole process — not because the team was bad, but because every bottleneck I spotted had to be described, queued, and waited on. I was the person who could see the problem and the person least able to fix it.</p>
+
+    <p>With Codex and Claude Code I build directly, which is how everything at Janata Bazar since has been made. Less time, far less money, and the bottlenecks get found faster because the person doing the building is the person running the operation.</p>
+
+    <p>The other thing I'd get right immediately: build the incentive before the instrument. I spent months learning that a system which only watches people will be rejected, and the same system that also rewards them will be adopted. That isn't a lesson about grocery retail. It's what happens any time you deploy software into a working business — the people who have to use it didn't ask for it, and they will go back to the old way the moment it costs them more than it gives.</p>
+
+    <div class="links">
+      <a class="pill" href="software.html">Back to Software</a>
+      <a class="pill" href="https://janatabazar.com/" target="_blank" rel="noopener">janatabazar.com</a>
+    </div>
+    <div class="foot">Kolkata, India · English, Bengali, Hindi · Economics graduate</div>
+  </main>
+
+</div>
+</body>
+</html>

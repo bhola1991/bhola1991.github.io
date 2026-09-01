@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software — Soumyadip Banerjee</title>
+<meta name="description" content="Turning unstructured data into workflows. Three shipped Android apps, LLM systems, internal tooling.">
+<meta property="og:title" content="Soumyadip Banerjee">
+<meta property="og:description" content="Turning unstructured data into workflows. Three shipped Android apps, LLM systems, internal tooling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>:root{--accent:var(--soft)}</style>
+
+</head>
+<body>
+<div class="shell">
+
+  <aside class="side">
+    <!-- Swap this block for: <img class="portrait" src="assets/images/me.jpg" alt="Soumyadip Banerjee"> -->
+    <div class="portrait-none">add photo<br>assets/images/me.jpg</div>
+    <h1><a href="index.html">Soumyadip Banerjee</a></h1>
+    <p class="role">Software, content and operations. Kolkata.</p>
+    <nav>
+      <a class="h" href="index.html">Home</a>
+      <a class="s" href="software.html" aria-current="page">Software</a>
+      <a class="c" href="content.html">Content</a>
+      <a class="o" href="operations.html">Operations</a>
+    </nav>
+    <div class="meta">
+      <a href="mailto:banerjeesoumyadip1991@gmail.com">Email</a><br>
+      <a href="https://www.linkedin.com/in/soumyadip-banerjee-05bbb8b3" target="_blank" rel="noopener">LinkedIn</a><br>
+      <a href="https://github.com/bhola1991" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="ph">
+      <h2>Software</h2>
+      <p>I take things that aren't structured — a handwritten ledger, a CV, a WhatsApp thread, a market that runs on phone calls — and turn them into something a machine can act on and a person will actually use.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-h"><h3>Panee and the Janata Bazar apps</h3><span class="when">Live on Google Play</span></div>
+      <p>Three Android apps covering every side of a produce marketplace: farmers list their harvest, customers order, delivery partners fulfil. I architected the system, specified it, and drove the build; a development team wrote the implementation. Listed under my name.</p>
+      <p class="sub">The constraint that shaped it: a farmer standing in a field with one hand free. Every extra field in a listing form is a farmer who abandons it and sells to the middleman instead — which is the exact outcome the business exists to prevent.</p>
+      <div class="links">
+        <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.farmer" target="_blank" rel="noopener">Panee — farmer app</a>
+        <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.customer" target="_blank" rel="noopener">Customer app</a>
+        <a class="pill" href="https://play.google.com/store/apps/details?id=com.jb.deliver_partner" target="_blank" rel="noopener">Delivery partner app</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-h"><h3>Job Triage</h3><span class="when">2026 · mine end to end</span></div>
+      <p>Reads any CV, works out which career directions are realistically open to that person, then finds and ranks jobs. Every role gets two separate scores: how well the work fits, and whether that employer will actually reply. A perfect job you won't get is not a good lead.</p>
+      <p class="sub">Reads Greenhouse, Lever and Ashby feeds directly rather than scraping. Multi-source ingestion with schema-drift handling, deduplication, and confidence tracked separately from score.</p>
+      <div class="links">
+        <a class="pill" href="https://bhola1991.github.io/job_triage/" target="_blank" rel="noopener">Try it live</a>
+        <a class="pill" href="https://github.com/bhola1991/job_triage" target="_blank" rel="noopener">Source</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-h"><h3>Internal tooling at Janata Bazar</h3><span class="when">In daily use</span></div>
+      <p>Backend systems and workflow automations built directly with Codex and Claude Code, plus a suite of frontend tools that non-technical staff open every day for operations, content and franchise management.</p>
+      <p class="sub">Software built for a business you run yourself fails differently. It has to survive its own author using it at 6am with a truck waiting, in front of staff who will simply stop opening it if it wastes their time. Several early versions died that way.</p>
+      <div class="links"><a class="pill" href="janata-systems.html">Read the full write-up</a></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-h"><h3>How I work</h3></div>
+      <ul class="pts">
+        <li>LLM systems: extraction, scoring and classification against real rubrics, not demos</li>
+        <li>Architecture and specification good enough for a team to build from</li>
+        <li>Third-party API integration with defensive handling for upstream schema drift</li>
+        <li>Advanced Excel modelling, SQL and Metabase</li>
+      </ul>
+    </div>
+    <div class="foot">Kolkata, India · English, Bengali, Hindi · Economics graduate</div>
+  </main>
+
+</div>
+</body>
+</html>
